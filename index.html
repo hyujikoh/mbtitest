@@ -54,16 +54,18 @@
         12 : {"title": "문제12","type":"JP","A":"J","B":"P" },
 
     }
-
+    var result{
+        
+    }
     function start(){
-        $(".start").hide()
-        $(".question").show()
+        $(".start").hide();
+        $(".question").show();
     }
     $("#A").click(function(){
         var type = $("#type").val();
 
-        var prevalue = $("#"+type).val()
-        $("#"+type).val(parseInt(prevalue)+1)
+        var prevalue = $("#"+type).val();
+        $("#"+type).val(parseInt(prevalue)+1);
         next();
     });
     $("#B").click(function(){
@@ -74,14 +76,19 @@
         if(num==13){
             $(".question").hide();
             $(".result").show();
-            var mbti = ""
+            var mbti = "";
+            ($("#EI").val()<2) ? mbti +="I" :mbti +="E";
+            ($("#SN").val()<2) ? mbti +="N" :mbti +="S";
+            ($("#TF").val()<2) ? mbti +="F" :mbti +="T";
+            ($("#JP").val()<2) ? mbti +="P" :mbti +="J";
+            alert(mbti);
         }
         else {
             $(".progress-bar").attr("style","width: calc(100/12*"+num+"%)");
             $("#title").html(q[num]["title"]);
-            $("#type").val(q[num]["type"])
-            $("#A").val(q[num]["A"])
-            $("#B").val(q[num]["B"])
+            $("#type").val(q[num]["type"]);
+            $("#A").html(q[num]["A"]);
+            $("#B").html(q[num]["B"]);
             num++;
         }
         
