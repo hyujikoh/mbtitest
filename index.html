@@ -54,7 +54,10 @@
         12 : {"title": "문제12","type":"JP","A":"J","B":"P" },
 
     }
-    var result{
+    var result ={
+        "ISFJ" :{"animal": "치타","explain":"치타 설명" ,"img": "lion.jpg"},
+        "ISFP" :{"animal": "하마","explain":"치타 설명" ,"img": "lion.jpg"},
+        "ENTJ" :{"animal": "고래","explain":"치타 설명" ,"img": "lion.jpg"},
         
     }
     function start(){
@@ -82,6 +85,9 @@
             ($("#TF").val()<2) ? mbti +="F" :mbti +="T";
             ($("#JP").val()<2) ? mbti +="P" :mbti +="J";
             alert(mbti);
+            $("#img").attr("src",result[mbti]["img"]);
+            $("#animal").html(result[mbti]["animal"])
+            $("#explain").html(result[mbti]["explain"])
         }
         else {
             $(".progress-bar").attr("style","width: calc(100/12*"+num+"%)");
